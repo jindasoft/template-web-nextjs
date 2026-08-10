@@ -2,6 +2,17 @@
   "home_page": {
     "title": "Hello world!"
   },
+  "navigation": {
+    "home": "Home",
+    "about": "About"
+  },
+  "locale_switcher": {
+    "label": "Change language",
+    "locales": {
+      "en": "English",
+      "th": "Thai"
+    }
+  },
   "about_page": {
     "title": "About page",
     "description": "This is the about page."

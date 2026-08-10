@@ -1,7 +1,13 @@
-import { useTranslations } from "next-intl";
+import { Locale } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export default function AboutPage() {
-  const t = useTranslations("about_page");
+type Props = Readonly<{
+  params: Promise<{ locale: Locale }>;
+}>;
+
+export default async function AboutPage({ params }: Props) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "about_page" });
 
   return (
     <>

@@ -2,6 +2,17 @@
   "home_page": {
     "title": "สวัสดีชาวโลก!"
   },
+  "navigation": {
+    "home": "หน้าหลัก",
+    "about": "เกี่ยวกับ"
+  },
+  "locale_switcher": {
+    "label": "เปลี่ยนภาษา",
+    "locales": {
+      "en": "English",
+      "th": "ไทย"
+    }
+  },
   "about_page": {
     "title": "เกี่ยวกับหน้า",
     "description": "นี่คือหน้าที่เกี่ยวกับ"

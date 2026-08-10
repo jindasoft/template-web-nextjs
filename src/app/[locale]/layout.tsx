@@ -3,6 +3,7 @@ import { Poppins, Noto_Sans_Thai } from 'next/font/google';
 import { Locale, NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import Navigation from '@/core/components/layouts/navigation';
 import { routing } from '@/i18n/routing';
 import '@/styles/globals.css';
 
@@ -37,7 +38,10 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html lang={locale} className={`${poppins.variable} ${notoSansThai.variable}`}>
       <body>
-        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>
+          <Navigation />
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );
