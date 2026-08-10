@@ -1,3 +1,5 @@
+"use client";
+
 import { useLocale, useTranslations } from "next-intl";
 import { routing } from "@/i18n/routing";
 import LocaleSwitcherSelect from "./locale_switcher_select";
@@ -7,7 +9,7 @@ export default function LocaleSwitcher() {
   const locale = useLocale();
 
   return (
-    <LocaleSwitcherSelect defaultValue={locale} label={t("label")}>
+    <LocaleSwitcherSelect value={locale} label={t("label")}>
       {routing.locales.map((locale) => (
         <option key={locale} value={locale}>
           {t(`locales.${locale}`)}

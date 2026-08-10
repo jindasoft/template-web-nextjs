@@ -7,13 +7,13 @@ import { usePathname, useRouter } from "@/i18n/navigation";
 
 type Props = {
   readonly children: ReactNode;
-  readonly defaultValue: string;
+  readonly value: string;
   readonly label: string;
 };
 
 export default function LocaleSwitcherSelect({
   children,
-  defaultValue,
+  value,
   label,
 }: Props) {
   const router = useRouter();
@@ -37,7 +37,7 @@ export default function LocaleSwitcherSelect({
       <p className="sr-only">{label}</p>
       <select
         className="inline-flex appearance-none bg-transparent py-2 pl-2 pr-6"
-        defaultValue={defaultValue}
+        value={value}
         disabled={isPending}
         onChange={onSelectChange}
       >

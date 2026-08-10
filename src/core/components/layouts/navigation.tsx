@@ -1,3 +1,5 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 import NavigationLink from "./navigation_link";
 import LocaleSwitcher from "./locale_switcher";
