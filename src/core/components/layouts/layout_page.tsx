@@ -1,13 +1,14 @@
 import Footer from "./footer";
 
-export default function LayoutPage({
-  children,
-}: {
+type Props = Readonly<{
   readonly children: React.ReactNode;
-}) {
+}>;
+
+export default function LayoutPage({ children }: Props) {
   return (
-    <div>{children}
+    <>
+      <div>{children}</div>
       <Footer />
-    </div>
+    </>
   );
 }
