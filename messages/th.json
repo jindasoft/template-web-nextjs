@@ -1,0 +1,26 @@
+{
+  "home_page": {
+    "title": "สวัสดีชาวโลก!",
+    "description": "นี่คือหน้าหลัก"
+  },
+  "navigation": {
+    "home": "หน้าหลัก",
+    "about": "เกี่ยวกับ"
+  },
+  "locale_switcher": {
+    "label": "เปลี่ยนภาษา",
+    "locales": {
+      "en": "English",
+      "th": "ไทย"
+    }
+  },
+  "about_page": {
+    "title": "เกี่ยวกับหน้า",
+    "description": "นี่คือหน้าที่เกี่ยวกับ"
+  },
+  "not_found_page": {
+    "title": "ไม่พบหน้า",
+    "description": "หน้าที่คุณกำลังมองหาไม่มีอยู่จริง",
+    "link_to_home": "ไปที่หน้าหลัก"
+  }
+}
