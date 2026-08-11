@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "brand": "Template Next.js",
+    "title": "Template Next.js"
+  },
   "home_page": {
     "title": "Hello world!",
     "description": "This is the home page."

@@ -1,8 +1,10 @@
 // src/app/[locale]/layout.tsx
 import { Poppins, Noto_Sans_Thai } from 'next/font/google';
+import { Metadata } from 'next';
 import { Locale, NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { host } from '@/configs/config';
 import Navigation from '@/core/components/layouts/navigation';
 import { routing } from '@/i18n/routing';
 import '@/styles/globals.css';
@@ -25,6 +27,31 @@ type Props = Readonly<{
   children: React.ReactNode;
   params: Promise<{ locale: Locale }>;
 }>;
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'meta' });
+  const siteTitle = t('title');
+
+  return {
+    metadataBase: new URL(host),
+    title: {
+      default: siteTitle,
+      template: `%s | ${siteTitle}`,
+    },
+    openGraph: {
+      type: 'website',
+      siteName: siteTitle,
+      title: siteTitle,
+      images: ['/og-image.png'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: siteTitle,
+      images: ['/og-image.png'],
+    },
+  };
+}
 
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
