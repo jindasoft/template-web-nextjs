@@ -1,0 +1,18 @@
+FROM node:24.14-alpine3.23 AS base
+RUN apk update && apk upgrade \
+ && rm -rf /usr/local/lib/node_modules/npm \
+ && rm -f /usr/local/bin/npm /usr/local/bin/npx
+
+WORKDIR /app
+
+RUN addgroup -S -g 1001 nodejs && adduser -S -D -u 1001 -G nodejs nextjs
+
+COPY --chown=nextjs:nodejs .next/standalone ./
+COPY --chown=nextjs:nodejs .next/static ./.next/static
+COPY --chown=nextjs:nodejs public ./public
+
+USER nextjs
+
+EXPOSE 3000
+
+CMD ["node", "server.js"]

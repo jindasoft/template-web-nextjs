@@ -1,0 +1,58 @@
+repos:
+  # Node.js dependencies
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+        exclude: 'src/translations/.*\.d\.json\.ts'
+      - id: check-yaml
+      - id: check-json
+      - id: check-merge-conflict
+      - id: no-commit-to-branch
+        args: ["--branch", "main", "--branch", "develop"]
+      - id: detect-private-key
+      - id: check-added-large-files
+        args: ["--maxkb", "1000"]
+
+  - repo: local
+    hooks:
+      - id: eslint
+        name: ESLint
+        entry: bash -c 'source ~/.nvm/nvm.sh && nvm use && pnpm eslint --fix'
+        language: system
+        types: [javascript, jsx, tsx]
+        pass_filenames: true
+
+      - id: prettier
+        name: Prettier
+        entry: bash -c 'source ~/.nvm/nvm.sh && nvm use && pnpm prettier --write'
+        language: system
+        types: [javascript, jsx, tsx, css, scss]
+        pass_filenames: true
+
+      - id: typescript
+        name: TypeScript type check
+        entry: bash -c 'source ~/.nvm/nvm.sh && nvm use && pnpm tsc --noEmit'
+        language: system
+        pass_filenames: false
+
+      - id: trivy-check
+        name: Trivy check
+        entry: bash -c 'trivy fs --exit-code 1 --severity HIGH,CRITICAL .'
+        language: system
+        pass_filenames: false
+
+      # - id: unit-tests
+      #   name: Unit tests
+      #   entry: yarn test
+      #   language: system
+      #   pass_filenames: false
+      #   stages: [commit]
+
+      - id: next-build
+        name: Next.js build
+        entry: bash -c 'source ~/.nvm/nvm.sh && nvm use && make build'
+        language: system
+        pass_filenames: false
+        stages: [pre-commit]
