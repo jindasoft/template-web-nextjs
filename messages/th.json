@@ -1,6 +1,7 @@
 {
   "home_page": {
-    "title": "สวัสดีชาวโลก!"
+    "title": "สวัสดีชาวโลก!",
+    "description": "นี่คือหน้าหลัก"
   },
   "navigation": {
     "home": "หน้าหลัก",

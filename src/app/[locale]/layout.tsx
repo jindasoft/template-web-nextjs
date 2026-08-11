@@ -28,8 +28,9 @@ type Props = Readonly<{
 
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
+  const supportedLocales = routing.locales as ReadonlyArray<Locale>;
 
-  if (!routing.locales.includes(locale as any)) {
+  if (!supportedLocales.includes(locale)) {
     notFound();
   }
 
