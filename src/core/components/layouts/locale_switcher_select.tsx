@@ -5,6 +5,8 @@ import { Locale } from "next-intl";
 import { useState, useTransition } from "react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
+import { Lineicons } from '@lineiconshq/react-lineicons';
+import { Globe1Outlined, ChevronDownOutlined } from '@lineiconshq/free-icons';
 
 type Props = {
   readonly value: string;
@@ -50,14 +52,14 @@ export default function LocaleSwitcherSelect({ value, label, options }: Props) {
         disabled={isPending}
         onClick={() => setIsOpen((open) => !open)}
       >
-        {/* <Lineicons icon={Globe1Outlined} size={20} className="md:hidden" aria-hidden="true" /> */}
+        <Lineicons icon={Globe1Outlined} size={20} className="md:hidden" aria-hidden="true" />
         <span className="hidden md:inline">{selectedOption?.label}</span>
-        {/* <Lineicons
+        <Lineicons
           icon={ChevronDownOutlined}
           size={12}
           className="hidden md:inline-flex md:translate-y-0.5"
           aria-hidden="true"
-        /> */}
+        />
       </button>
       {isOpen && (
         <div

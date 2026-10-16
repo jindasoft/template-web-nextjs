@@ -1,16 +1,15 @@
-// src/app/[locale]/layout.tsx
 import { Poppins, Noto_Sans_Thai } from 'next/font/google';
 import { Metadata } from 'next';
 import { Locale, NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { host, robotsFollow, robotsIndex } from "@/configs/config";
-import Navigation from '@/core/components/layouts/navigation';
 import { routing } from '@/i18n/routing';
-import '@/styles/globals.css';
 import CookieConsent from '@/core/generals/cookie_consent';
 import GoogleAnalytics from '@/core/generals/google_analytics';
+import Navigation from '@/core/components/layouts/navigation';
 import Footer from '@/core/components/layouts/footer';
+import '@/styles/globals.css';
 
 const poppins = Poppins({
   subsets: ['latin'],

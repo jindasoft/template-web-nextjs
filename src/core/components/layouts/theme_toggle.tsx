@@ -1,7 +1,7 @@
 "use client";
 
-// import { MoonHalfRight5Outlined, Sun1Outlined } from "@lineiconshq/free-icons";
-// import { Lineicons } from "@lineiconshq/react-lineicons";
+import { MoonHalfRight5Outlined, Sun1Outlined } from "@lineiconshq/free-icons";
+import { Lineicons } from "@lineiconshq/react-lineicons";
 import { startTransition, useEffect, useState } from "react";
 
 const THEME_STORAGE_KEY = "theme";
@@ -41,11 +41,11 @@ export default function ThemeToggle() {
       aria-label="Toggle color theme"
       className="inline-flex size-9 items-center justify-center rounded hover:bg-slate-200 dark:hover:bg-slate-700"
     >
-      {/* <Lineicons
+      <Lineicons
         icon={theme === "dark" ? Sun1Outlined : MoonHalfRight5Outlined}
         size={20}
         aria-hidden="true"
-      /> */}
+      />
     </button>
   );
 }

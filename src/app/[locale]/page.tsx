@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import { Locale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { routing } from "@/i18n/routing";
+import Homepage from "@/modules/homepages/components/homepage";
 
 type Props = Readonly<{
   params: Promise<{ locale: Locale }>;
@@ -46,11 +47,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function IndexPage({ params }: Props) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'home_page' });
 
   return (
-    <div>
-      <h1>{t('title')}</h1>
-    </div>
+    <Homepage
+      locale={locale}
+    />
   );
 }
