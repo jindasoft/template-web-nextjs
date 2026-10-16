@@ -1,7 +1,9 @@
 {
   "meta": {
-    "brand": "Template Next.js",
-    "title": "Template Next.js"
+    "title": "Template Next.js",
+    "tagline": "เทมเพลตที่ดีที่สุดสำหรับ Next.js",
+    "subtitle": "เทมเพลต Next.js ที่ทรงพลังและยืดหยุ่น",
+    "description": "เทมเพลตนี้ช่วยให้คุณเริ่มโครงการ Next.js ได้อย่างรวดเร็ว"
   },
   "home_page": {
     "title": "สวัสดีชาวโลก!",

@@ -13,11 +13,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const isDefaultLocale = locale === routing.defaultLocale;
   const canonicalPath = isDefaultLocale ? "/" : `/${locale}`;
-  const t = await getTranslations({ locale, namespace: 'home_page' });
+  const t = await getTranslations({ locale, namespace: "meta" });
+  const title = t("title");
+  const description = t("description");
+  // const openGraphLocale = openGraphLocales[locale] ?? "en_US";
 
   return {
-    title: t('title'),
-    description: t('description'),
+    title: title,
+    description: description,
     alternates: {
       canonical: canonicalPath,
       languages: {
@@ -31,6 +34,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     //   url: canonicalPath,
     //   title: t('title'),
     //   images: "/og-image.png",
+    // },
+    // twitter: {
+    //   card: "summary_large_image",
+    //   title,
+    //   description,
+    //   images: ["/og-image.png"],
     // },
   };
 }

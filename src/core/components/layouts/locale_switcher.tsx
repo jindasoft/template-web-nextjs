@@ -9,12 +9,13 @@ export default function LocaleSwitcher() {
   const locale = useLocale();
 
   return (
-    <LocaleSwitcherSelect value={locale} label={t("label")}>
-      {routing.locales.map((locale) => (
-        <option key={locale} value={locale}>
-          {t(`locales.${locale}`)}
-        </option>
-      ))}
-    </LocaleSwitcherSelect>
+    <LocaleSwitcherSelect
+      value={locale}
+      label={t("label")}
+      options={routing.locales.map((locale) => ({
+        value: locale,
+        label: t(`locales.${locale}`),
+      }))}
+    />
   );
 }

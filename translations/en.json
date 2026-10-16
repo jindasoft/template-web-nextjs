@@ -1,7 +1,9 @@
 {
   "meta": {
-    "brand": "Template Next.js",
-    "title": "Template Next.js"
+    "title": "Template Next.js",
+    "tagline": "The best template for Next.js",
+    "subtitle": "A powerful and flexible Next.js template",
+    "description": "This template helps you quickly start a Next.js project."
   },
   "home_page": {
     "title": "Hello world!",
