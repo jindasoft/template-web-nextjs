@@ -1,12 +1,14 @@
-// src/app/[locale]/layout.tsx
 import { Poppins, Noto_Sans_Thai } from 'next/font/google';
 import { Metadata } from 'next';
 import { Locale, NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { host } from '@/configs/config';
-import Navigation from '@/core/components/layouts/navigation';
+import { host, robotsFollow, robotsIndex } from "@/configs/config";
 import { routing } from '@/i18n/routing';
+import CookieConsent from '@/core/generals/cookie_consent';
+import GoogleAnalytics from '@/core/generals/google_analytics';
+import Navigation from '@/core/components/layouts/navigation';
+import Footer from '@/core/components/layouts/footer';
 import '@/styles/globals.css';
 
 const poppins = Poppins({
@@ -50,6 +52,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: siteTitle,
       images: ['/og-image.png'],
     },
+    robots: {
+      index: robotsIndex,
+      follow: robotsFollow,
+    },
   };
 }
 
@@ -65,10 +71,13 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html lang={locale} className={`${poppins.variable} ${notoSansThai.variable}`}>
-      <body>
+      <body className="flex min-h-screen flex-col">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Navigation />
-          {children}
+          <div className="flex-1 bg-(--background-secondary)">{children}</div>
+          <Footer />
+          <GoogleAnalytics />
+          <CookieConsent />
         </NextIntlClientProvider>
       </body>
     </html>

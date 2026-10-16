@@ -12,20 +12,16 @@ export default function NavigationLink({
   const isActive = pathname === href;
 
   return (
-    <>
-      {/* <div>++{pathname}</div>
-      <div>{typeof href === "string" ? href : JSON.stringify(href)}</div>
-      <div>--{isActive}</div>
-      ++++++++++ */}
-      <Link
-        aria-current={isActive ? "page" : undefined}
-        className={clsx(
-          "inline-block px-2 py-3 transition-colors",
-          isActive ? "text-white" : "text-gray-400 hover:text-gray-200"
-        )}
-        href={href}
-        {...rest}
-      />
-    </>
+    <Link
+      aria-current={isActive ? "page" : undefined}
+      className={clsx(
+        "inline-block px-2 py-3 transition-colors",
+        isActive
+          ? "text-slate-900 dark:text-white"
+          : "text-slate-500 hover:text-slate-800 dark:text-gray-400 dark:hover:text-gray-200"
+      )}
+      href={href}
+      {...rest}
+    />
   );
 }

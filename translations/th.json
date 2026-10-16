@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "title": "Template",
+    "tagline": "เทมเพลต Next.js",
+    "subtitle": "เทมเพลต Next.js ที่ทรงพลังและยืดหยุ่น",
+    "description": "เทมเพลตนี้ช่วยให้คุณเริ่มโครงการ Next.js ได้อย่างรวดเร็ว"
+  },
+  "home_page": {
+    "title": "สวัสดีชาวโลก!",
+    "description": "นี่คือหน้าหลัก"
+  },
+  "navigation": {
+    "home": "หน้าหลัก",
+    "about": "เกี่ยวกับ"
+  },
+  "locale_switcher": {
+    "label": "เปลี่ยนภาษา",
+    "locales": {
+      "en": "English",
+      "th": "ไทย"
+    }
+  },
+  "about_page": {
+    "title": "เกี่ยวกับหน้า",
+    "description": "นี่คือหน้าที่เกี่ยวกับ"
+  },
+  "not_found_page": {
+    "title": "ไม่พบหน้า",
+    "description": "หน้าที่คุณกำลังมองหาไม่มีอยู่จริง",
+    "link_to_home": "ไปที่หน้าหลัก"
+  },
+  "footer": {
+    "explore_heading": "สำรวจ",
+    "legal_heading": "กฎหมาย",
+    "privacy_policy": "นโยบายความเป็นส่วนตัว",
+    "account_deletion": "การลบบัญชี",
+    "rights_reserved": "สงวนลิขสิทธิ์ทั้งหมด"
+  },
+  "cookie_consent": {
+    "message": "เราใช้คุกกี้เพื่อวิเคราะห์การใช้งานเว็บไซต์ คุณยินยอมให้เราเก็บข้อมูลเพื่อการวิเคราะห์หรือไม่?",
+    "decline": "ปฏิเสธ",
+    "accept": "ยอมรับ",
+    "manage": "จัดการคุกกี้",
+    "revoke": "ถอนความยินยอม",
+    "current_status": "สถานะปัจจุบัน: {status}",
+    "granted": "ยอมรับแล้ว",
+    "denied": "ปฏิเสธแล้ว",
+    "ok": "ตกลง"
+  }
+}

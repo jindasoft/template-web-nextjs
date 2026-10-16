@@ -7,6 +7,7 @@ repos:
       - id: end-of-file-fixer
         exclude: 'src/translations/.*\.d\.json\.ts'
       - id: check-yaml
+        exclude: '^pnpm-lock\.yaml$'
       - id: check-json
       - id: check-merge-conflict
       - id: no-commit-to-branch
