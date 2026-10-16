@@ -14,7 +14,3 @@ export const gaID = process.env.NEXT_PUBLIC_GA_ID ?? "";
 export const apiUrl = process.env.NEXT_PUBLIC_API_URL
   ? `https://${process.env.NEXT_PUBLIC_API_URL}`
   : `http://localhost:${port}`;
-
-export const imageUrl = process.env.NEXT_PUBLIC_IMAGE_URL
-  ? `https://${process.env.NEXT_PUBLIC_IMAGE_URL}`
-  : `http://localhost:${port}`;

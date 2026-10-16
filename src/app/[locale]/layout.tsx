@@ -1,10 +1,14 @@
-// src/app/[locale]/layout.tsx
 import { Poppins, Noto_Sans_Thai } from 'next/font/google';
+import { Metadata } from 'next';
 import { Locale, NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import Navigation from '@/core/components/layouts/navigation';
+import { host, robotsFollow, robotsIndex } from "@/configs/config";
 import { routing } from '@/i18n/routing';
+import CookieConsent from '@/core/generals/cookie_consent';
+import GoogleAnalytics from '@/core/generals/google_analytics';
+import Navigation from '@/core/components/layouts/navigation';
+import Footer from '@/core/components/layouts/footer';
 import '@/styles/globals.css';
 
 const poppins = Poppins({
@@ -26,6 +30,35 @@ type Props = Readonly<{
   params: Promise<{ locale: Locale }>;
 }>;
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'meta' });
+  const siteTitle = t('title');
+
+  return {
+    metadataBase: new URL(host),
+    title: {
+      default: siteTitle,
+      template: `%s | ${siteTitle}`,
+    },
+    openGraph: {
+      type: 'website',
+      siteName: siteTitle,
+      title: siteTitle,
+      images: ['/og-image.png'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: siteTitle,
+      images: ['/og-image.png'],
+    },
+    robots: {
+      index: robotsIndex,
+      follow: robotsFollow,
+    },
+  };
+}
+
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
   const supportedLocales = routing.locales as ReadonlyArray<Locale>;
@@ -38,10 +71,13 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html lang={locale} className={`${poppins.variable} ${notoSansThai.variable}`}>
-      <body>
+      <body className="flex min-h-screen flex-col">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Navigation />
-          {children}
+          <div className="flex-1 bg-(--background-secondary)">{children}</div>
+          <Footer />
+          <GoogleAnalytics />
+          <CookieConsent />
         </NextIntlClientProvider>
       </body>
     </html>

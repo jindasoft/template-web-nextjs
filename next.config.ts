@@ -1,27 +1,21 @@
-import {NextConfig} from 'next';
-import createNextIntlPlugin from 'next-intl/plugin';
+import { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
+
+const imageHostname = process.env.NEXT_PUBLIC_IMAGE_URL;
 
 const nextConfig: NextConfig = {
   output: "standalone",
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: process.env.NEXT_PUBLIC_IMAGE_URL || "localhost",
-        port: "",
-        pathname: "/**",
-      },
-    ],
+    remotePatterns: imageHostname
+      ? [
+          {
+            protocol: "https",
+            hostname: imageHostname,
+            pathname: "/**",
+          },
+        ]
+      : [],
   },
-	async redirects() {
-		return [
-			{
-				source: '/en/:path*',
-				destination: '/:path*',
-				permanent: true,
-			},
-		];
-	},
 };
 
 const withNextIntl = createNextIntlPlugin();

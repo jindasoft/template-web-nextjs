@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "title": "Template",
+    "tagline": "template for Next.js",
+    "subtitle": "A powerful and flexible Next.js template",
+    "description": "This template helps you quickly start a Next.js project."
+  },
+  "home_page": {
+    "title": "Hello world!",
+    "description": "This is the home page."
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About"
+  },
+  "locale_switcher": {
+    "label": "Change language",
+    "locales": {
+      "en": "English",
+      "th": "Thai"
+    }
+  },
+  "about_page": {
+    "title": "About page",
+    "description": "This is the about page."
+  },
+  "not_found_page": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist.",
+    "link_to_home": "Go to home page"
+  },
+  "footer": {
+    "explore_heading": "Explore",
+    "legal_heading": "Legal",
+    "privacy_policy": "Privacy Policy",
+    "account_deletion": "Account deletion",
+    "rights_reserved": "All rights reserved."
+  },
+  "cookie_consent": {
+    "message": "We use cookies to analyze site usage. Do you consent to us collecting data for analytics?",
+    "decline": "Decline",
+    "accept": "Accept",
+    "manage": "Manage cookies",
+    "revoke": "Revoke consent",
+    "current_status": "Current status: {status}",
+    "granted": "Accepted",
+    "denied": "Declined",
+    "ok": "OK"
+  }
+}
