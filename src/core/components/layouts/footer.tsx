@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 import { OPEN_COOKIE_CONSENT_EVENT } from "@/core/generals/cookie_consent";
@@ -25,7 +24,6 @@ export default function Footer() {
       <Container className="grid gap-8 py-10 sm:grid-cols-3">
         <div>
           <Link href="/" className="inline-flex items-center gap-2 text-lg font-semibold text-slate-900 dark:text-white">
-            <Image src="/logo/tripgator.png" alt={tMeta("title")} width={28} height={28} />
             <span>{tMeta("title")}</span>
           </Link>
           <p className="mt-1 text-sm">{tMeta("subtitle")}</p>

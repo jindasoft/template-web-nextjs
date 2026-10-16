@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Container from "./container";
 import LocaleSwitcher from "./locale_switcher";
 import Menu from "./menu";
@@ -16,7 +15,6 @@ export default function Navigation() {
       <nav className="relative text-slate-800 dark:text-white">
         <Container className="flex items-center gap-2 py-2">
           <Link href="/" className="flex items-center gap-2 text-lg font-semibold">
-            <Image src="/logo/tripgator.png" alt={tMeta("title")} width={32} height={32} priority />
             <span>{tMeta("title")}</span>
           </Link>
           <Menu />
