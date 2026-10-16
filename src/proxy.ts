@@ -7,6 +7,6 @@ export const config = {
   matcher: [
     "/",
     "/(en|th)/:path*",
-    "/((?!api|trpc|_next|_vercel|.*\\.(?:ico|png|jpg|jpeg|webp|svg|css|js|woff2?|txt|json)).*)",
+    "/((?!api|trpc|_next|_vercel|sitemap\\.xml|.*\\.(?:ico|png|jpg|jpeg|webp|svg|css|js|woff2?|txt|json)).*)", // NOSONAR
   ],
 };

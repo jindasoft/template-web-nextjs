@@ -1,14 +1,9 @@
-import Footer from "./footer";
+import Container from "./container";
 
 type Props = Readonly<{
   readonly children: React.ReactNode;
 }>;
 
 export default function LayoutPage({ children }: Props) {
-  return (
-    <>
-      <div>{children}</div>
-      <Footer />
-    </>
-  );
+  return <Container className="mt-8 mb-20">{children}</Container>;
 }

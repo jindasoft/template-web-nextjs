@@ -9,3 +9,8 @@ export const routing = defineRouting({
     "/about": "/about",
   },
 });
+
+export const openGraphLocales: Record<string, string> = {
+  en: "en_US",
+  th: "th_TH",
+};

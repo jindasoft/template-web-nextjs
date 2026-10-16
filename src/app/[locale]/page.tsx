@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import { Locale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { routing } from "@/i18n/routing";
+import Homepage from "@/modules/homepages/components/homepage";
 
 type Props = Readonly<{
   params: Promise<{ locale: Locale }>;
@@ -13,11 +14,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const isDefaultLocale = locale === routing.defaultLocale;
   const canonicalPath = isDefaultLocale ? "/" : `/${locale}`;
-  const t = await getTranslations({ locale, namespace: 'home_page' });
+  const t = await getTranslations({ locale, namespace: "meta" });
+  const title = t("title");
+  const description = t("description");
+  // const openGraphLocale = openGraphLocales[locale] ?? "en_US";
 
   return {
-    title: t('title'),
-    description: t('description'),
+    title: title,
+    description: description,
     alternates: {
       canonical: canonicalPath,
       languages: {
@@ -32,16 +36,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     //   title: t('title'),
     //   images: "/og-image.png",
     // },
+    // twitter: {
+    //   card: "summary_large_image",
+    //   title,
+    //   description,
+    //   images: ["/og-image.png"],
+    // },
   };
 }
 
 export default async function IndexPage({ params }: Props) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'home_page' });
 
   return (
-    <div>
-      <h1>{t('title')}</h1>
-    </div>
+    <Homepage
+      locale={locale}
+    />
   );
 }
